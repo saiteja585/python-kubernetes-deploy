@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-deploy
+  labels:
+    app: python-deploy
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: python-deploy
+  template:
+    metadata:
+      labels:
+        app: python-deploy
+    spec:
+      containers:
+      - name: python
+        image: saiteja585/python
+        ports:
+          - containerPort: 3000
+
